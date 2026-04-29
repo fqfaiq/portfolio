@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name | Portfolio</title>
+    <meta name="description" content="Personal portfolio website of Your Name.">
+    <style>
+        :root {
+            --bg: #020617;
+            --surface: #0f172a;
+            --text: #e2e8f0;
+            --muted: #94a3b8;
+            --accent: #22d3ee;
+            --border: rgba(255, 255, 255, 0.12);
+        }
+
+        * { box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: min(1100px, 92%);
+            margin: 0 auto;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            background: rgba(2, 6, 23, 0.9);
+            border-bottom: 1px solid var(--border);
+            backdrop-filter: blur(8px);
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            padding: 0;
+            margin: 0;
+        }
+
+        a { color: inherit; text-decoration: none; }
+        nav a:hover { color: var(--accent); }
+
+        .hero {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 28px;
+            padding: 72px 0;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 6px 12px;
+            border: 1px solid rgba(34, 211, 238, 0.5);
+            border-radius: 999px;
+            color: #a5f3fc;
+            font-size: 12px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        h1 { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.2; margin: 16px 0; }
+        h2 { font-size: 1.7rem; margin: 0 0 12px; }
+
+        p { color: var(--muted); }
+
+        .btns {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 18px;
+        }
+
+        .btn {
+            padding: 10px 16px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            font-weight: 600;
+        }
+
+        .btn.primary {
+            background: var(--accent);
+            color: #082f49;
+            border-color: transparent;
+        }
+
+        .panel, .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 20px;
+        }
+
+        section { padding: 40px 0; }
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .chip {
+            padding: 8px 12px;
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            color: #cbd5e1;
+            font-size: 14px;
+        }
+
+        footer {
+            border-top: 1px solid var(--border);
+            margin-top: 40px;
+            padding: 24px 0;
+            text-align: center;
+            color: var(--muted);
+        }
+
+        @media (max-width: 800px) {
+            nav ul { display: none; }
+            .hero, .projects { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#home"><strong>Your Name</strong></a>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="home" class="hero">
+            <div>
+                <span class="badge">Available for work</span>
+                <h1>I build clean, fast, and modern websites.</h1>
+                <p>
+                    I am Your Name, a web developer focused on building useful and user-friendly digital products.
+                </p>
+                <div class="btns">
+                    <a class="btn primary" href="#projects">View Projects</a>
+                    <a class="btn" href="#contact">Contact Me</a>
+                </div>
+            </div>
+
+            <aside class="panel">
+                <h2>Quick Intro</h2>
+                <p><strong style="color:#a5f3fc;">Role:</strong> Full-Stack Developer</p>
+                <p><strong style="color:#a5f3fc;">Location:</strong> Your City</p>
+                <p><strong style="color:#a5f3fc;">Experience:</strong> 2+ years</p>
+                <p><strong style="color:#a5f3fc;">Stack:</strong> HTML, CSS, JavaScript, Laravel, MySQL</p>
+            </aside>
+        </section>
+
+        <section id="about">
+            <h2>About Me</h2>
+            <p>
+                I enjoy turning ideas into real products with clean UI and reliable code.
+                I care about performance, accessibility, and creating solutions that genuinely help users.
+            </p>
+        </section>
+
+        <section id="projects">
+            <h2>Featured Projects</h2>
+            <div class="projects">
+                <article class="card">
+                    <h3>Project One</h3>
+                    <p>Short description of your project, what problem it solves, and your impact.</p>
+                    <p><strong style="color:#a5f3fc;">Tech:</strong> HTML, CSS, JavaScript</p>
+                </article>
+                <article class="card">
+                    <h3>Project Two</h3>
+                    <p>Short description of your project, what problem it solves, and your impact.</p>
+                    <p><strong style="color:#a5f3fc;">Tech:</strong> Laravel, Tailwind, MySQL</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>Skills</h2>
+            <div class="chips">
+                <span class="chip">HTML</span>
+                <span class="chip">CSS</span>
+                <span class="chip">JavaScript</span>
+                <span class="chip">PHP</span>
+                <span class="chip">Laravel</span>
+                <span class="chip">MySQL</span>
+                <span class="chip">Git</span>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>Reach out for freelance projects, internships, collaborations, or full-time opportunities.</p>
+            <p><strong>Email:</strong> <a href="mailto:you@example.com" style="color:#67e8f9;">you@example.com</a></p>
+            <p><strong>GitHub:</strong> <a href="https://github.com/yourusername" style="color:#67e8f9;">github.com/yourusername</a></p>
+            <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/yourusername" style="color:#67e8f9;">linkedin.com/in/yourusername</a></p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">© <span id="year"></span> Your Name. All rights reserved.</div>
+    </footer>
+
+    <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

@@ -77,6 +77,41 @@
             text-transform: uppercase;
         }
 
+        .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 18px;
+            border: 1px solid var(--border);
+            background: rgba(15, 23, 42, 0.7);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: none;
+        }
+
+        .avatar-fallback {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 12px;
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        .avatar-row {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+
         h1 { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.2; margin: 16px 0; }
         h2 { font-size: 1.7rem; margin: 0 0 12px; }
 
@@ -115,6 +150,15 @@
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
             gap: 16px;
+        }
+
+        .project-shot {
+            width: 100%;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            margin-top: 12px;
+            object-fit: cover;
+            background: rgba(15, 23, 42, 0.6);
         }
 
         .chips {
@@ -166,7 +210,7 @@
                 <span class="badge">Available for work</span>
                 <h1>I build clean, fast, and modern websites.</h1>
                 <p>
-                    I am Your Name, a web developer focused on building useful and user-friendly digital products.
+                    I am Muhammad Faiq Bin Edzri Effendi, a web developer focused on building useful and user-friendly digital products.
                 </p>
                 <div class="btns">
                     <a class="btn primary" href="#projects">View Projects</a>
@@ -175,10 +219,17 @@
             </div>
 
             <aside class="panel">
+                <div class="avatar-row">
+                    <div class="avatar">
+                        <img id="profileImg" src="profile.png" alt="Profile photo">
+                        <div class="avatar-fallback" id="profileFallback">Add your photo<br/>(`profile.png`)</div>
+                    </div>
+                </div>
                 <h2>Quick Intro</h2>
                 <p><strong style="color:#a5f3fc;">Role:</strong> Full-Stack Developer & Data Analyst</p>
+                <p><strong style="color:#a5f3fc;">Qualification:</strong> Diploma in Computer Science</p>
                 <p><strong style="color:#a5f3fc;">Location:</strong> Kuala Lumpur, Malaysia</p>
-                <p><strong style="color:#a5f3fc;">Experience:</strong> 2+ years</p>
+                <p><strong style="color:#a5f3fc;">Experience:</strong> Internship in Laravel development</p>
                 <p><strong style="color:#a5f3fc;">Stack:</strong> HTML, CSS, JavaScript, Laravel, MySQL, Filament</p>
             </aside>
         </section>
@@ -195,14 +246,37 @@
             <h2>Featured Projects</h2>
             <div class="projects">
                 <article class="card">
-                    <h3>Project One</h3>
-                    <p>Short description of your project, what problem it solves, and your impact.</p>
-                    <p><strong style="color:#a5f3fc;">Tech:</strong> HTML, CSS, JavaScript</p>
+                    <h3>Matric Card Management System</h3>
+                    <p>
+                        The Matric Card Management System is a web application developed using Laravel.
+                        It allows students to apply for their matric card online and access a digital matric card
+                        for easier verification and campus use.
+                    </p>
+                    <p>
+                        This project improves the traditional manual process by reducing paperwork,
+                        speeding up application handling, and making the system more user-friendly for
+                        both students and administrators.
+                    </p>
+                    <p><strong style="color:#a5f3fc;">Tech:</strong> Laravel, PHP, MySQL, HTML, CSS, JavaScript</p>
+                    <img class="project-shot" src="matric-homepage.png" alt="Matric Card Management System homepage">
+                    <img class="project-shot" src="matric-login.png" alt="Matric Card Management System login page">
                 </article>
                 <article class="card">
-                    <h3>Project Two</h3>
-                    <p>Short description of your project, what problem it solves, and your impact.</p>
-                    <p><strong style="color:#a5f3fc;">Tech:</strong> Laravel, Tailwind, MySQL</p>
+                    <h3>TGS Management System Enhancements</h3>
+                    <p>
+                        During my internship, I involved in developing the TGS Management System for TGS TW PLT, a professional services firm located in Kuala Lumpur, Malaysia.The system is built using Laravel and Filament, focusing on features that improved internal workflow and usability.
+                        I was assigned to develop an IT Asset Report page that displays detailed information on IT assets,
+                        allowing users to view and manage asset data more efficiently.
+                    </p>
+                    <p>
+                        I also assisted in developing a new feature in the timesheet module called the Flexible Hour option.
+                        This feature is accessible only to selected users and allows them to create a timesheet by selecting
+                        a start date and total working hours, improving flexibility and overall usability.
+                    </p>
+                    <p><strong style="color:#a5f3fc;">Tech:</strong> Laravel, Filament, PHP, MySQL</p>
+                    <img class="project-shot" src="intern-flexible-form.png" alt="Flexible Hour form in timesheet module">
+                    <img class="project-shot" src="intern-it-asset-report.png" alt="IT Asset Report page showing asset information">
+                    <img class="project-shot" src="intern-flexible-form-2.png" alt="Additional Flexible Hour timesheet view">
                 </article>
             </div>
         </section>
@@ -236,6 +310,20 @@
 
     <script>
         document.getElementById("year").textContent = new Date().getFullYear();
+
+        // Show the fallback placeholder if the profile image isn't present.
+        const profileImg = document.getElementById("profileImg");
+        const profileFallback = document.getElementById("profileFallback");
+        if (profileImg && profileFallback) {
+            profileImg.addEventListener("load", () => {
+                profileImg.style.display = "block";
+                profileFallback.style.display = "none";
+            });
+            profileImg.addEventListener("error", () => {
+                profileImg.style.display = "none";
+                profileFallback.style.display = "flex";
+            });
+        }
     </script>
 </body>
 </html>

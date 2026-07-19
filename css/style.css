@@ -35,7 +35,6 @@ header {
     top: 0;
     background: rgba(247, 245, 242, 0.85);
     border-bottom: 1px solid var(--border);
-    backdrop-filter: blur(12px);
     z-index: 100;
 }
 
